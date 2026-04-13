@@ -129,8 +129,10 @@ def load_models():
 
     with open("scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
+    with open("features.pkl", "rb") as f:
+    feature_columns = pickle.load(f)
 
-    return cnn_model, resnet_model, scaler
+    return cnn_model, resnet_model, scaler, features
 
 
 cnn_model, resnet_model, scaler = load_models()
@@ -163,10 +165,18 @@ input_df = user_input()
 
 # 6. PREPROCESS
 def preprocess(df):
-    df_scaled = scaler.transform(df)
-    return torch.tensor(df_scaled, dtype=torch.float32).unsqueeze(1)
+    # Create full feature dataframe
+    full_df = pd.DataFrame(columns=feature_columns)
 
-input_tensor = preprocess(input_df)
+    # Fill user inputs
+    for col in df.columns:
+        full_df[col] = df[col]
+
+    # Fill missing columns with 0
+    full_df = full_df.fillna(0)
+
+    df_scaled = scaler.transform(full_df)
+    return torch.tensor(df_scaled, dtype=torch.float32).unsqueeze(1)
 
 # 7. PREDICTION
 def predict(model, x):
