@@ -129,13 +129,14 @@ def load_models():
 
     with open("scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
+    
     with open("features.pkl", "rb") as f:
     feature_columns = pickle.load(f)
 
-    return cnn_model, resnet_model, scaler, features
+    return cnn_model, resnet_model, scaler, feature_columns
 
 
-cnn_model, resnet_model, scaler = load_models()
+cnn_model, resnet_model, scaler, feature_columns = load_models()
 
 # 4. STREAMLIT UI
 st.set_page_config(page_title="Churn Predictor", layout="wide")
