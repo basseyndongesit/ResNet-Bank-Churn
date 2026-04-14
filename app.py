@@ -152,14 +152,14 @@ st.sidebar.header("Enter Customer Details")
 
 def user_input():
     data = {
-        "Customer_Age": st.sidebar.slider("Age", 18, 80, 35),
-        "Dependent_count": st.sidebar.slider("Dependents", 0, 5, 2),
-        "Months_on_book": st.sidebar.slider("Months with Bank", 6, 60, 24),
-        "Total_Relationship_Count": st.sidebar.slider("Products Held", 1, 6, 3),
-        "Months_Inactive_12_mon": st.sidebar.slider("Inactive Months", 0, 12, 2),
-        "Contacts_Count_12_mon": st.sidebar.slider("Contacts", 0, 6, 2),
-        "Credit_Limit": st.sidebar.number_input("Credit Limit", 1000, 50000, 10000),
-        "Total_Revolving_Bal": st.sidebar.number_input("Balance", 0, 5000, 1000)
+        "Customer_Age": st.sidebar.slider("Age", 18, 80, 35, key="age"),
+        "Dependent_count": st.sidebar.slider("Dependents", 0, 5, 2, key="dependents"),
+        "Months_on_book": st.sidebar.slider("Months with Bank", 6, 60, 24, key="months"),
+        "Total_Relationship_Count": st.sidebar.slider("Products Held", 1, 6, 3, key="products"),
+        "Months_Inactive_12_mon": st.sidebar.slider("Inactive Months", 0, 12, 2, key="inactive"),
+        "Contacts_Count_12_mon": st.sidebar.slider("Contacts", 0, 6, 2, key="contacts"),
+        "Credit_Limit": st.sidebar.number_input("Credit Limit", 1000, 50000, 10000, key="credit"),
+        "Total_Revolving_Bal": st.sidebar.number_input("Balance", 0, 5000, 1000, key="balance")
     }
     return pd.DataFrame([data])
 
