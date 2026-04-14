@@ -214,12 +214,12 @@ with col2:
     st.write(f"Confidence: {resnet_prob:.2%}")
 
 # 9. BUSINESS IMPACT
-st.subheader("💰 Business Impact")
+# st.subheader("💰 Business Impact")
 
-st.success("Estimated Annual ROI: **$360,000**")
+# st.success("Estimated Annual ROI: **$360,000**")
 
-st.markdown("""
-- Retained Customers: **432**
-- Revenue Saved: **$432,000**
-- Cost: **$72,000**
-""")
+# st.markdown("""
+# - Retained Customers: **432**
+# - Revenue Saved: **$432,000**
+# - Cost: **$72,000**
+# """)
