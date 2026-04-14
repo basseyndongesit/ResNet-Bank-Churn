@@ -127,14 +127,15 @@ def load_models():
     cnn_model.eval()
     resnet_model.eval()
 
+    import pickle
+
     with open("scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
-    
+
     with open("features.pkl", "rb") as f:
-    feature_columns = pickle.load(f)
+        feature_columns = pickle.load(f)
 
     return cnn_model, resnet_model, scaler, feature_columns
-
 
 cnn_model, resnet_model, scaler, feature_columns = load_models()
 
