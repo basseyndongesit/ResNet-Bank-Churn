@@ -223,11 +223,3 @@ st.markdown("""
 - Revenue Saved: **$432,000**
 - Cost: **$72,000**
 """)
-
-# 10. FINAL INSIGHT
-st.subheader("💡 Insight")
-
-st.info("""
-CNN offers slightly higher predictive power, while ResNet provides more stable and reliable predictions.
-This ensures strong performance and scalability in real-world deployment.
-""")
