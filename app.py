@@ -188,6 +188,10 @@ def predict(model, x):
         pred = np.argmax(prob)
     return pred, prob[1]
 
+input_df = user_input()
+
+input_tensor = preprocess(input_df)
+
 cnn_pred, cnn_prob = predict(cnn_model, input_tensor)
 resnet_pred, resnet_prob = predict(resnet_model, input_tensor)
 
